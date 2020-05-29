@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script src="scripts.js"></script>
+    </head>
+    <body onload="getKommuner()">
+
+        <h1>Ejendomme</h1>
+        <br/>
+        <section>
+            <select name="kommuner" id="dropdown"></select>
+            <br/>
+            <br/>
+            <button type="button" onclick="getEjendommeViaKommune()">Ejendomme fra kommune</button>&nbsp;&nbsp;
+            <label for="page">Side:</label>
+            <input type="text" value="?" id="page" name="page" style="width: 90px;">&nbsp;&nbsp;
+            <label for="pagesize">Sidestørrelse:</label>
+            <input type="number" value="25" id="pagesize" name="pagesize" style="width: 90px;">
+            <br/>
+            <br/>
+            <table id="ejendomme">
+                <tr>
+                  <th>Kommunekode</th>
+                  <th>Ejendomsnummer</th>
+                  <th>(Ejerlav, Matr.Nr.)</th>
+                  <th>Adressenavn</th>
+                </tr>
+            </table>
+        </section>
+    </body>
+</html>
