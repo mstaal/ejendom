@@ -8,16 +8,20 @@
     <body onload="getKommuner()">
 
         <h1>Ejendomme</h1>
-        <br/>
         <section>
-            <select name="kommuner" id="dropdown"></select>
+            <select name="kommuner" id="dropdown"></select>&nbsp;&nbsp;
+            <input type="text" placeholder="Søgning..." id="search" name="search" style="width: 190px;">
             <br/>
             <br/>
-            <button type="button" onclick="getEjendommeViaKommune()">Ejendomme fra kommune</button>&nbsp;&nbsp;
+            <button type="button" id="searchButton" onclick="getEjendomme()">Søg ejendomme</button>&nbsp;&nbsp;
+            <label for="random">Tilfældig:</label>
+            <input type="checkbox" id="random" name="random" style="width: 20px;">&nbsp;&nbsp;
             <label for="page">Side:</label>
-            <input type="text" value="?" id="page" name="page" style="width: 90px;">&nbsp;&nbsp;
+            <input type="number" value="1" id="page" name="page" style="width: 80px;">&nbsp;&nbsp;
             <label for="pagesize">Sidestørrelse:</label>
-            <input type="number" value="25" id="pagesize" name="pagesize" style="width: 90px;">
+            <input type="number" value="25" id="pagesize" name="pagesize" style="width: 80px;">&nbsp;&nbsp;
+            <label for="mom">Moder:</label>
+            <input type="checkbox" checked id="mom" name="mom" style="width: 20px;">
             <br/>
             <br/>
             <table id="ejendomme">
@@ -26,6 +30,7 @@
                   <th>Ejendomsnummer</th>
                   <th>(Ejerlav, Matr.Nr.)</th>
                   <th>Adressenavn</th>
+                  <th>Ejendomsrelation</th>
                 </tr>
             </table>
         </section>
