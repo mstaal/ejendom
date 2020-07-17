@@ -162,6 +162,7 @@ function constructTableFromEjendomme(ejendomme) {
         var matrikel = row.insertCell(2);
         var adressenavn = row.insertCell(3);
         var ejendomsrelation = row.insertCell(4);
+        var bbrmeddelelse = row.insertCell(5);
         kommunekode.innerHTML = adgang.kommune.kode;
         var ejdlength = adgang.esrejendomsnr ? adgang.esrejendomsnr.length : 0;
         ejendomsnummer.innerHTML = adgang.esrejendomsnr ? "000000".concat(adgang.esrejendomsnr).substring(ejdlength) : "Ukendt";
@@ -169,8 +170,12 @@ function constructTableFromEjendomme(ejendomme) {
         adressenavn.innerHTML = adresse.adressebetegnelse;
         if(adgang.esrejendomsnr) {
             var bbrdafurl = "https://services.datafordeler.dk/BBR/BBRPublic/1/rest/ejendomsrelation?&format=xml";
-            bbrdafurl = bbrdafurl.concat("&kommunekode=", adgang.kommune.kode, "&ejendomsnummer=", adgang.esrejendomsnr, "&username=GVTBDWFELM&password=Test1234!")
-            ejendomsrelation.innerHTML = "<a href='" + bbrdafurl + "' target='_blank'>Link</a>"
+            bbrdafurl = bbrdafurl.concat("&kommunekode=", adgang.kommune.kode, "&ejendomsnummer=", adgang.esrejendomsnr, "&username=GVTBDWFELM&password=Test1234!");
+            ejendomsrelation.innerHTML = "<a href='" + bbrdafurl + "' target='_blank'>Link</a>";
+            
+            var bbrmeddelelseurl = "https://bbr.dk/pls/wwwdata/get_ois_pck.show_bbr_meddelelse_pdf?i_municipalitycode="
+                .concat(adgang.kommune.kode,"&i_realpropertyidentifier=", adgang.esrejendomsnr);
+            bbrmeddelelse.innerHTML = "<a href='" + bbrmeddelelseurl + "' target='_blank'>BBR</a>"
         }
     }
     body.appendChild(table);
