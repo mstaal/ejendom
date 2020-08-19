@@ -3,7 +3,6 @@ function getKommuner() {
     fetchJsonViaGet(url)
     .then(kommuner => {
         var dropdown = document.getElementById("dropdown");
-        var option = document.createElement('option');
         dropdown.add(option, kommuner.length);
         for (let index = 0; index < kommuner.length; index++) {
             var kommune = kommuner[index];
