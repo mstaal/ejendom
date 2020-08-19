@@ -11,7 +11,7 @@
 
         <h1>Ejendomme</h1>
         <section>
-            <select name="kommuner" id="dropdown"></select>&nbsp;&nbsp;
+            <select name="kommuner" id="dropdown" multiple="multiple"></select>&nbsp;&nbsp;
             <input type="text" placeholder="Søgning..." id="search" name="search" style="width: 190px;">
             <br/>
             <br/>
@@ -37,5 +37,8 @@
                 </tr>
             </table>
         </section>
+        <script>
+            $('#dropdown').selectWoo();
+        </script>
     </body>
 </html>
