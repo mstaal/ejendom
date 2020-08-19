@@ -4,8 +4,6 @@ function getKommuner() {
     .then(kommuner => {
         var dropdown = document.getElementById("dropdown");
         var option = document.createElement('option');
-        option.value = "";
-        option.text = "Vælg kommune...";
         dropdown.add(option, kommuner.length);
         for (let index = 0; index < kommuner.length; index++) {
             var kommune = kommuner[index];
